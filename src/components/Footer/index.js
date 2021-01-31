@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 // src/components/Footer/index.js
 const FooterWrapper = styled.footer`
@@ -29,15 +29,13 @@ export default function Footer(props) {
   return (
     // eslint-disable-next-line react/jsx-props-no-spreading
     <FooterWrapper {...props}>
-      <a href="https://www.alura.com.br/" target="_blank">
-        <img src="https://www.alura.com.br/assets/img/alura-logo-white.1570550707.svg" alt="Logo Alura" />
+      <a href="https://graficoeweb.com.br/">
+        <img src="https://graficoeweb.com.br/images/logo.png" alt="Logo Grafico e Web" />
       </a>
       <p>
-        Orgulhosamente criado durante
+        Orgulhosamente criado durante a
         {' '}
-        a
-        {' '}
-        <a href="https://www.alura.com.br/" target="_blank">
+        <a href="https://www.alura.com.br/">
           <span>Imersão React da Alura</span>
         </a>
       </p>

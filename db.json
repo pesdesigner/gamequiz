@@ -1,43 +1,143 @@
 {
-    "bg": "https://graficoeweb.com.br/images/tomb-raider-2.webp",
-    "title": "Quiz CSS da Alura",
-    "description": "Teste os seus conhecimentos sobre CSS e vamos ver quantos layouts você vai deixar de quebrar",
-    "questions": [
-      {
-        "image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",
-        "title": "Como fazer um seletor por id via CSS?",
-        "description": "Essa é pra aquecer",
-        "answer": 2,
-        "alternatives": [
-          ".elemento",
-          "*elemento",
-          "#elemento",
-          "%elemento"
-        ]
-      },
-      {
-        "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
-        "title": "Como fazer um background gradiente com css?",
-        "description": "Faz tempo em haha",
-        "answer": 0,
-        "alternatives": [
-           "background: linear-gradient(#e66465, #9198e5);",
-           "background: gradient(#e66465, #9198e5);"
-        ]
-      }
-    ],
-    "external": [
-      ""
-    ],
-    "theme": {
-      "colors": {
-        "primary": "#0C1814",
-        "secondary": "#a85816",
-        "mainBg": "#3c4643",
-        "contrastText": "#FFC400",
-        "wrong": "#FF5722",
-        "success": "#4CAF50"
-      },
-      "borderRadius": "4px"
+  "bg": "https://graficoeweb.com.br/images/quiz/retro-game.jpg",
+  "title": "RETRÔ GAME QUIZ",
+  "description": "Você é um gamer raiz do tempo das fichas de FLIPERAMA. Então, responda esse QUIZ nostálgico",
+  "questions": [
+    {
+      "image": "https://graficoeweb.com.br/images/quiz/megaman2.gif",
+      "title": "Qual o nome do jogo do Mega Man no Japão? ",
+      "description": "Dica: Stallone",
+      "answer": 1,
+      "alternatives": [
+        "Mega Man X",
+        "Rockman",
+        "Mr robot",
+        "Mega Rockman"
+      ]
+    },
+    {
+      "image": "https://graficoeweb.com.br/images/quiz/continue.gif",
+      "title": "Jogo dos anos 90 que o personagem fazia missões para uma gangue, recebia ligações de um orelhão, roubava carros e atropelava todo mundo.",
+      "description": "E agora? Você sabe?",
+      "answer": 1,
+      "alternatives": [
+        "Doom",
+        "Grand Theft Auto",
+        "Super metroid",
+        "Driver"
+      ]
+    },
+    {
+      "image": "https://graficoeweb.com.br/images/quiz/donkey-kong.gif",
+      "title": "No jogo Donkey Kong Country o player precisa juntar letras para formar uma palavra e ganhar uma vida. Qual era essa palavra?",
+      "description": "Não é possível que vc nunca jogou",
+      "answer": 3,
+      "alternatives": [
+        "Banana",
+        "Festa (party)",
+        "Donkey",
+        "Kong"
+      ]
+    },
+    {
+      "image": "https://graficoeweb.com.br/images/quiz/atari-pele.gif",
+      "title": "Atari foi um vídeo game de muito sucesso dos anos 80 no Brasil. Você sabe qual desses jogos NÃO era do Atari 2600?",
+      "description": "Seu pai, seu tio ou até seu avô sabe",
+      "answer": 2,
+      "alternatives": [
+        "Enduro",
+        "River Raid",
+        "Blaster master",
+        "Donkey Kong"
+      ]
+    },
+    {
+      "image": "https://graficoeweb.com.br/images/quiz/supermario.gif",
+      "title": "Qual é o nome do vilão de Super Mario?",
+      "answer": 3,
+      "description": "Era um jacaré???",
+      "alternatives": [
+        "M. Bison",
+        "Dr. Ivo 'Eggman' Robotinick",
+        "Dr. Wily",
+        "Bowser"
+      ]
+    },
+    {
+      "image": "https://graficoeweb.com.br/images/quiz/cartuchos.gif",
+      "title": "Era muito comum em vídeo games que usavam cartuchos o jogo não funcionar ou congelar a imagem por exemplo. E para resolver esse problema normalmente a gente...",
+      "answer": 0,
+      "description": "Quem nunca? E usava bombril na antena da TV tbm",
+      "alternatives": [
+        "Assoprava a fita",
+        "Chamava a mãe",
+        "Trocava a fita na locadora",
+        "Assistência técnica"
+      ]
+    },
+    {
+      "image": "https://graficoeweb.com.br/images/quiz/sonic.gif",
+      "title": "Há rumores que um cantor muito famoso foi responsável pela trilha sonora de Sonic the Hedgehog 3. Nunca foi comprovada a sua participação, alguém duvida?",
+      "answer": 1,
+      "description": "Curioso não! Eu diria, Beto Barbosa... e vc lembrou da música da lambada",
+      "alternatives": [
+        "Luis caldas",
+        "Michael Jackson",
+        "David Bowie",
+        "Lenny Kravitz"
+      ]
+    },
+    {
+      "image": "https://graficoeweb.com.br/images/quiz/sega-genesis.gif",
+      "title": "O vídeo game de 16bits da SEGA recebeu outro nome nos EUA. Você sabe o nome do Mega Drive na terra do Tio Sam?",
+      "answer": 2,
+      "description": "Joguei muuuito! Já assistiu o Exterminador do Futuro? Hasta la vista...",
+      "alternatives": [
+        "Super famicon",
+        "3DO 16bits",
+        "Genesis",
+        "Neo GEO"
+      ]
+    },
+    {
+      "image": "https://graficoeweb.com.br/images/quiz/continue2.gif",
+      "title": "Qual desses jogos NÃO é conhecido como Beat 'Em Up (briga de rua).",
+      "answer": 3,
+      "description": "Curtia muito Vigilante e Renegade do Master System! Woww",
+      "alternatives": [
+        "Double Dragon (1987 - Fliperama)",
+        "Battletoads (1991 - NES, Mega Drive)",
+        "The Simpsons (1991 - Fliperama)",
+        "Clay Fighter (1993 - Super Nintendo e Mega Drive)"
+      ]
+    },
+    {
+      "image": "https://graficoeweb.com.br/images/quiz/car.gif",
+      "title": "Qual desses personagens NÃO é do jogo de luta Super Street Fighter II: The New Challengers.",
+      "answer": 3,
+      "description": "O melhor fliperama dos botecos! Diz aí, tá bom... tem KOF, MK, Samurai...",
+      "alternatives": [
+        "T.Hawk",
+        "Dee Jay",
+        "Cammy",
+        "Sakura"
+      ]
     }
+  ],
+  "external": [
+    "https://aluraquiz-marvel.omariosouto.vercel.app/",
+    "https://quiz-next-js.rodrigoandradebcc.vercel.app/",
+    "https://geeks-quiz.rafaelsouzajava.vercel.app/"
+    ],
+  "theme": {
+    "colors": {
+      "primary": "#DB0648",
+      "secondary": "#68ED39",
+      "mainBg": "#00405C",
+      "contrastText": "#FFFFFF",
+      "wrong": "#FF5722",
+      "success": "#4CAF50"
+    },
+    "borderRadius": "4px"
   }
+}
