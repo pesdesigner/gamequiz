@@ -1,10 +1,10 @@
 {
-  "bg": "https://graficoeweb.com.br/images/quiz/retro-game.jpg",
+  "bg": "../../assets/img-retro-game.jpg",
   "title": "RETRÔ GAME QUIZ",
   "description": "Você é um gamer raiz do tempo das fichas de FLIPERAMA. Então, responda esse QUIZ nostálgico",
   "questions": [
     {
-      "image": "https://graficoeweb.com.br/images/quiz/megaman2.gif",
+      "image": "../../assets/gif/megaman.gif",
       "title": "Qual o nome do jogo do Mega Man no Japão? ",
       "description": "Dica: Stallone",
       "answer": 1,
@@ -13,10 +13,19 @@
         "Rockman",
         "Mr robot",
         "Mega Rockman"
-      ]
+      ],
+      "imageDescription": {
+        "platforms": [
+          "NES / Famicom"
+        ],
+        "title": "Mega Man",
+        "description": "Neste jogo de ação para NES, um herói robótico enfrenta os Robot Masters e pode adquirir as armas de seus adversários.",
+        "year": "1987",
+        "brand": "Capcom"
+      }
     },
     {
-      "image": "https://graficoeweb.com.br/images/quiz/continue.gif",
+      "image": "../../assets/gif/continue.gif",
       "title": "Jogo dos anos 90 que o personagem fazia missões para uma gangue, recebia ligações de um orelhão, roubava carros e atropelava todo mundo.",
       "description": "E agora? Você sabe?",
       "answer": 1,
@@ -25,10 +34,19 @@
         "Grand Theft Auto",
         "Super metroid",
         "Driver"
-      ]
+      ],
+      "imageDescription": {
+        "platforms": [
+          "Arcade"
+        ],
+        "title": "Street Fighter II",
+        "description": "Street Fighter II popularizou os jogos de luta competitivos, com personagens marcantes e golpes especiais.",
+        "year": "1997",
+        "brand": "DMA Design / BMG Interactive"
+      }
     },
     {
-      "image": "https://graficoeweb.com.br/images/quiz/donkey-kong.gif",
+      "image": "../../assets/gif/donkey-kong.gif",
       "title": "No jogo Donkey Kong Country o player precisa juntar letras para formar uma palavra e ganhar uma vida. Qual era essa palavra?",
       "description": "Não é possível que vc nunca jogou",
       "answer": 3,
@@ -37,10 +55,19 @@
         "Festa (party)",
         "Donkey",
         "Kong"
-      ]
+      ],
+      "imageDescription": {
+        "platforms": [
+          "Super Nintendo (SNES)"
+        ],
+        "title": "Donkey Kong",
+        "description": "No primeiro Donkey Kong, lançado para fliperamas e adaptado ao Nintendo Entertainment System, Jumpman precisa resgatar Pauline enquanto desvia dos barris.",
+        "year": "1994",
+        "brand": "Nintendo / Rare"
+      }
     },
     {
-      "image": "https://graficoeweb.com.br/images/quiz/atari-pele.gif",
+      "image": "../../assets/gif/atari.gif",
       "title": "Atari foi um vídeo game de muito sucesso dos anos 80 no Brasil. Você sabe qual desses jogos NÃO era do Atari 2600?",
       "description": "Seu pai, seu tio ou até seu avô sabe",
       "answer": 2,
@@ -49,10 +76,19 @@
         "River Raid",
         "Blaster master",
         "Donkey Kong"
-      ]
+      ],
+      "imageDescription": {
+        "platforms": [
+          "Atari 2600"
+        ],
+        "title": "Atari 2600",
+        "description": "O Atari 2600 levou os videogames para muitas casas e ficou conhecido por seus cartuchos e controles simples.",
+        "year": "1981",
+        "brand": "Atari"
+      }
     },
     {
-      "image": "https://graficoeweb.com.br/images/quiz/supermario.gif",
+      "image": "../../assets/gif/supermario.gif",
       "title": "Qual é o nome do vilão de Super Mario?",
       "answer": 3,
       "description": "Era um jacaré???",
@@ -61,10 +97,19 @@
         "Dr. Ivo 'Eggman' Robotinick",
         "Dr. Wily",
         "Bowser"
-      ]
+      ],
+      "imageDescription": {
+        "platforms": [
+          "NES / Famicom"
+        ],
+        "title": "Super Mario Bros.",
+        "description": "O clássico de plataforma que apresentou ao público a jornada de Mario pelo Reino dos Cogumelos.",
+        "year": "1985",
+        "brand": "Nintendo"
+      }
     },
     {
-      "image": "https://graficoeweb.com.br/images/quiz/cartuchos.gif",
+      "image": "../../assets/gif/cartuchos.gif",
       "title": "Era muito comum em vídeo games que usavam cartuchos o jogo não funcionar ou congelar a imagem por exemplo. E para resolver esse problema normalmente a gente...",
       "answer": 0,
       "description": "Quem nunca? E usava bombril na antena da TV tbm",
@@ -73,10 +118,19 @@
         "Chamava a mãe",
         "Trocava a fita na locadora",
         "Assistência técnica"
-      ]
+      ],
+      "imageDescription": {
+        "platforms": [
+          "Diversos consoles"
+        ],
+        "title": "Cartuchos de videogame",
+        "description": "Uma lembrança dos cartuchos que marcaram diferentes gerações de videogames.",
+        "year": "Décadas de 1980 e 1990",
+        "brand": "Várias marcas"
+      }
     },
     {
-      "image": "https://graficoeweb.com.br/images/quiz/sonic.gif",
+      "image": "../../assets/gif/sonic.gif",
       "title": "Há rumores que um cantor muito famoso foi responsável pela trilha sonora de Sonic the Hedgehog 3. Nunca foi comprovada a sua participação, alguém duvida?",
       "answer": 1,
       "description": "Curioso não! Eu diria, Beto Barbosa... e vc lembrou da música da lambada",
@@ -85,10 +139,19 @@
         "Michael Jackson",
         "David Bowie",
         "Lenny Kravitz"
-      ]
+      ],
+      "imageDescription": {
+        "platforms": [
+          "Mega Drive / Genesis"
+        ],
+        "title": "Sonic the Hedgehog",
+        "description": "No primeiro jogo da série para Mega Drive, Sonic corre por zonas coloridas para impedir os planos do Dr. Robotnik.",
+        "year": "1994",
+        "brand": "SEGA"
+      }
     },
     {
-      "image": "https://graficoeweb.com.br/images/quiz/sega-genesis.gif",
+      "image": "../../assets/gif/sega-genesis.gif",
       "title": "O vídeo game de 16bits da SEGA recebeu outro nome nos EUA. Você sabe o nome do Mega Drive na terra do Tio Sam?",
       "answer": 2,
       "description": "Joguei muuuito! Já assistiu o Exterminador do Futuro? Hasta la vista...",
@@ -97,10 +160,19 @@
         "3DO 16bits",
         "Genesis",
         "Neo GEO"
-      ]
+      ],
+      "imageDescription": {
+        "platforms": [
+          "Console doméstico"
+        ],
+        "title": "Mega Drive",
+        "description": "Console de 16 bits da SEGA lançado no Japão em 1988 e conhecido por sua velocidade e jogos de ação.",
+        "year": "1988 (Japão) / 1989 (EUA)",
+        "brand": "SEGA"
+      }
     },
     {
-      "image": "https://graficoeweb.com.br/images/quiz/continue2.gif",
+      "image": "../../assets/gif/finalfight.gif",
       "title": "Qual desses jogos NÃO é conhecido como Beat 'Em Up (briga de rua).",
       "answer": 3,
       "description": "Curtia muito Vigilante e Renegade do Master System! Woww",
@@ -109,10 +181,19 @@
         "Battletoads (1991 - NES, Mega Drive)",
         "The Simpsons (1991 - Fliperama)",
         "Clay Fighter (1993 - Super Nintendo e Mega Drive)"
-      ]
+      ],
+      "imageDescription": {
+        "platforms": [
+          "Arcades e consoles"
+        ],
+        "title": "Final Fight",
+        "description": "Final Fight é um clássico de ação em que os jogadores percorrem as ruas de Metro City para resgatar Jessica.",
+        "year": "Décadas de 1980 e 1990",
+        "brand": "Várias marcas"
+      }
     },
     {
-      "image": "https://graficoeweb.com.br/images/quiz/car.gif",
+      "image": "../../assets/gif/car.gif",
       "title": "Qual desses personagens NÃO é do jogo de luta Super Street Fighter II: The New Challengers.",
       "answer": 3,
       "description": "O melhor fliperama dos botecos! Diz aí, tá bom... tem KOF, MK, Samurai...",
@@ -121,18 +202,27 @@
         "Dee Jay",
         "Cammy",
         "Sakura"
-      ]
+      ],
+      "imageDescription": {
+        "platforms": [
+          "Arcade"
+        ],
+        "title": "Super Street Fighter II: The New Challengers",
+        "description": "Esta versão de Street Fighter II apresentou quatro novos personagens desafiantes.",
+        "year": "1993",
+        "brand": "Capcom"
+      }
     }
   ],
   "external": [
     "https://aluraquiz-marvel.omariosouto.vercel.app/",
     "https://quiz-next-js.rodrigoandradebcc.vercel.app/",
     "https://geeks-quiz.rafaelsouzajava.vercel.app/"
-    ],
+  ],
   "theme": {
     "colors": {
       "primary": "#DB0648",
-      "secondary": "#68ED39",
+      "secondary": "#2F7A4F",
       "mainBg": "#00405C",
       "contrastText": "#FFFFFF",
       "wrong": "#FF5722",
@@ -141,3 +231,4 @@
     "borderRadius": "4px"
   }
 }
+

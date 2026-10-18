@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 function Logo({ className }) {
   return (
-    <svg
+    <svg className={className}
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
       data-name="Camada 1"
@@ -27,9 +27,18 @@ Logo.propTypes = {
 const QuizLogo = styled(Logo)`
   margin: auto;
   display: block;
+
+  @media screen and (min-width: 701px) {
+    width: 273px;
+    height: auto;
+  }
+
   @media screen and (max-width: 500px) {
     margin: 0;
   }
 `;
 
 export default QuizLogo;
+
+
+
