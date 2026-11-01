@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 import db from '../db.json';
 import Widget from '../src/components/Widget';
 import Link from '../src/components/Link';
-import QuizLogo from '../src/components/QuizLogo';
+import Header from '../src/components/Header';
 import QuizBackground from '../src/components/QuizBackground';
 import Footer from '../src/components/Footer';
 import GitHubCorner from '../src/components/GitHubCorner';
@@ -45,7 +45,7 @@ export default function Home() {
         </title>
       </Head>
       <QuizContainer>
-        <QuizLogo />
+        <Header title={db.title} />
         <Widget
           as={motion.section}
           transition={{ delay: 0, duration: 0.5 }}
@@ -56,9 +56,6 @@ export default function Home() {
           initial="hidden"
           animate="show"
         >
-          <Widget.Header>
-            <h1>{db.title}</h1>
-          </Widget.Header>
           <Widget.Content>
             <p>{db.description}</p>
             <form onSubmit={function (infosDoEvento) {
@@ -70,11 +67,11 @@ export default function Home() {
               <Input
                 name="nomeDoUsuario"
                 onChange={(infosDoEvento) => setName(infosDoEvento.target.value)}
-                placeholder="Diz ai seu nome"
+                placeholder="Diz aí, qual o seu nome?"
                 value={name}
               />
               <Button type="submit" disabled={name.length === 0}>
-                {`Jogar ${name}`}
+                {`Vamos jogar, ${name}`}
               </Button>
             </form>
           </Widget.Content>
@@ -130,3 +127,4 @@ export default function Home() {
     </QuizBackground>
   );
 }
+

@@ -1,6 +1,6 @@
 {
   "name": "with-styled-components",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "scripts": {
     "dev": "next",
     "build": "next build",
@@ -11,10 +11,10 @@
   "dependencies": {
     "@crello/react-lottie": "^0.0.11",
     "framer-motion": "^3.2.2-rc.1",
-    "next": "latest",
+    "next": "15",
     "prop-types": "^15.7.2",
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
     "react-is": "^16.8.0",
     "styled-components": "^5.0.0"
   },
@@ -27,5 +27,8 @@
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "engines": {
+    "node": "22.x"
+  }
 }

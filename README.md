@@ -1,78 +1,112 @@
-# Example app with styled-components
+# Retrô Game Quiz
 
-This example features how you use a different styling solution than [styled-jsx](https://github.com/zeit/styled-jsx) that also supports universal styles. That means we can serve the required styles for the first render within the HTML and then load the rest in the client. In this case we are using [styled-components](https://github.com/styled-components/styled-components).
+Aplicação web de quiz sobre videogames retrô. A pessoa informa o nome, responde perguntas de múltipla escolha, recebe o resultado e pode abrir quizzes compartilhados por outras pessoas.
 
-For this purpose we are extending the `<Document />` and injecting the server side rendered styles into the `<head>`, and also adding the `babel-plugin-styled-components` (which is required for server side rendering). Additionally we set up a global [theme](https://www.styled-components.com/docs/advanced#theming) for styled-components using NextJS custom [`<App>`](https://nextjs.org/docs/advanced-features/custom-app) component.
+## Funcionalidades
 
-## Deploy your own
+- Quiz local com perguntas e respostas armazenadas em `db.json`.
+- Loading com barra de progresso sobre o fundo do jogo.
+- Pontuação e mensagens de resultado de acordo com os acertos.
+- Lista de quizzes externos e rota para carregá-los.
+- API local em `/api/db`, que disponibiliza os dados do quiz.
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+## Versão
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-styled-components&project-name=with-styled-components&repository-name=with-styled-components)
+Versão atual: **1.2.0**
 
-## How to use
+Esta versão atualiza o projeto para Next.js 15 e React 18, corrige a compatibilidade dos links e do carregamento de animações e melhora as mensagens de resultado e a tela de loading.
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+## Tecnologias
+
+- Next.js 15 com Pages Router
+- React e React DOM 18.3.1
+- styled-components para estilos e renderização no servidor
+- Framer Motion para animações
+- `@crello/react-lottie` para animações do quiz
+- Node.js 22.x
+- Yarn Classic 1.22.4
+
+## Executar localmente
+
+### Pré-requisitos
+
+- Node.js 22.x
+- Yarn Classic 1.x
+
+Se você usa o nvm-windows, selecione o Node 22:
 
 ```bash
-npx create-next-app --example with-styled-components with-styled-components-app
-# or
-yarn create next-app --example with-styled-components with-styled-components-app
+nvm install 22.23.4
+nvm use 22.23.4
+node --version
+yarn --version
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+Na pasta do projeto, instale as dependências registradas no lockfile e inicie o servidor:
 
-### Try it on CodeSandbox
-
-[Open this example on CodeSandbox](https://codesandbox.io/s/github/vercel/next.js/tree/canary/examples/with-styled-components)
-
-### Notes
-
-When wrapping a [Link](https://nextjs.org/docs/api-reference/next/link) from `next/link` within a styled-component, the [as](https://styled-components.com/docs/api#as-polymorphic-prop) prop provided by `styled` will collide with the Link's `as` prop and cause styled-components to throw an `Invalid tag` error. To avoid this, you can either use the recommended [forwardedAs](https://styled-components.com/docs/api#forwardedas-prop) prop from styled-components or use a different named prop to pass to a `styled` Link.
-
-<details>
-<summary>Click to expand workaround example</summary>
-<br />
-
-**components/StyledLink.js**
-
-```javascript
-import Link from 'next/link'
-import styled from 'styled-components'
-
-const StyledLink = ({ as, children, className, href }) => (
-  <Link href={href} as={as} passHref>
-    <a className={className}>{children}</a>
-  </Link>
-)
-
-export default styled(StyledLink)`
-  color: #0075e0;
-  text-decoration: none;
-  transition: all 0.2s ease-in-out;
-
-  &:hover {
-    color: #40a9ff;
-  }
-
-  &:focus {
-    color: #40a9ff;
-    outline: none;
-    border: 0;
-  }
-`
+```bash
+yarn install --frozen-lockfile
+yarn dev
 ```
 
-**pages/index.js**
+Acesse [http://localhost:3000](http://localhost:3000). Para encerrar o servidor, pressione `Ctrl+C`.
 
-```javascript
-import StyledLink from '../components/StyledLink'
+O quiz local não exige banco de dados, arquivo `.env` ou credenciais. Os dados são lidos de `db.json`; a API local pode ser acessada em [http://localhost:3000/api/db](http://localhost:3000/api/db).
 
-export default () => (
-  <StyledLink href="/post/[pid]" forwardedAs="/post/abc">
-    First post
-  </StyledLink>
-)
+### Build local
+
+Para gerar e iniciar o build de produção:
+
+```bash
+yarn build
+yarn start
 ```
 
-</details>
+`yarn start` deve ser executado depois de `yarn build`.
+
+## Publicar na Vercel
+
+### Fluxo de branches
+
+- `develop`: desenvolvimento e integração das alterações.
+- `uat`: homologação do projeto antes da produção. A Vercel cria um deployment de preview para essa branch.
+- `main` ou `master`: produção, conforme a branch configurada como Production Branch na Vercel.
+
+Fluxo de promoção: `develop` → `uat` → `main`/`master`.
+
+A Vercel detecta aplicações Next.js e cria deployments a partir do repositório Git conectado. O projeto declara Node.js `22.x` no campo `engines` do `package.json`. Confirme também essa versão nas configurações do projeto na Vercel.
+
+1. Importe o repositório em **Add New Project**.
+2. Confirme o preset **Next.js** e o diretório raiz do projeto.
+3. Mantenha os comandos de instalação e build detectados pela Vercel.
+4. Envie commits para a branch `develop` e confira o deployment de preview.
+5. Depois de validar o preview, faça o merge para a branch de produção.
+
+Consulte a [documentação de Next.js na Vercel](https://vercel.com/docs/frameworks/full-stack/nextjs), a [documentação de deployments Git](https://vercel.com/docs/git) e as [versões de Node.js aceitas](https://vercel.com/docs/functions/runtimes/node-js/node-js-versions).
+
+O quiz local não requer variáveis de ambiente. A rota `/quiz/[id]` depende de uma API pública compatível com o formato usado pelo projeto e da disponibilidade desse serviço remoto.
+
+## Estrutura do projeto
+
+```text
+pages/
+├── api/db.js          API que retorna db.json
+├── quiz/
+│   ├── index.js       Quiz local
+│   └── [id].js        Quiz carregado de um serviço externo
+├── _app.js            Estilos globais e tema
+└── _document.js       Coleta de estilos do styled-components no servidor
+src/
+├── components/        Componentes reutilizáveis da interface
+└── screens/Quiz/      Fluxo de perguntas, loading e resultado
+db.json                Tema, perguntas e links de quizzes externos
+```
+
+## Scripts
+
+| Comando | Descrição |
+| --- | --- |
+| `yarn dev` | Inicia o servidor de desenvolvimento |
+| `yarn build` | Gera o build de produção |
+| `yarn start` | Inicia o servidor de produção após o build |
+| `yarn lint` | Executa o ESLint com `--fix`; pode alterar arquivos automaticamente |
