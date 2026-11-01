@@ -5,36 +5,44 @@ Aplicação web de quiz sobre videogames retrô. A pessoa informa o nome, respon
 ## Funcionalidades
 
 - Quiz local com perguntas e respostas armazenadas em `db.json`.
-- Tela de carregamento e feedback após responder.
-- Pontuação ao final do quiz.
+- Loading com barra de progresso sobre o fundo do jogo.
+- Pontuação e mensagens de resultado de acordo com os acertos.
 - Lista de quizzes externos e rota para carregá-los.
 - API local em `/api/db`, que disponibiliza os dados do quiz.
 
+## Versão
+
+Versão atual: **1.2.0**
+
+Esta versão atualiza o projeto para Next.js 15 e React 18, corrige a compatibilidade dos links e do carregamento de animações e melhora as mensagens de resultado e a tela de loading.
+
 ## Tecnologias
 
-- Next.js 10.0.5 com Pages Router
-- React e React DOM 16.14.0
-- styled-components 5.2.1, incluindo renderização de estilos no servidor
+- Next.js 15 com Pages Router
+- React e React DOM 18.3.1
+- styled-components para estilos e renderização no servidor
 - Framer Motion para animações
-- `@crello/react-lottie` para a animação de carregamento
-- Yarn Classic 1.22.4; as versões instaladas estão registradas em `yarn.lock`
+- `@crello/react-lottie` para animações do quiz
+- Node.js 22.x
+- Yarn Classic 1.22.4
 
 ## Executar localmente
 
 ### Pré-requisitos
 
-O projeto foi iniciado localmente com Node.js 16.20.2 e Yarn Classic 1.22.4. Node 16 está fora de suporte; esse runtime serve como compatibilidade temporária para a versão antiga do Next.js usada pelo projeto.
+- Node.js 22.x
+- Yarn Classic 1.x
 
-Com o [nvm-windows](https://github.com/coreybutler/nvm-windows), selecione a versão usada no teste local:
+Se você usa o nvm-windows, selecione o Node 22:
 
 ```bash
-nvm install 16.20.2
-nvm use 16.20.2
+nvm install 22.23.4
+nvm use 22.23.4
 node --version
 yarn --version
 ```
 
-Confirme que o Node mostra `v16.20.2`. Na pasta do projeto, instale exatamente as dependências do lockfile e inicie o servidor:
+Na pasta do projeto, instale as dependências registradas no lockfile e inicie o servidor:
 
 ```bash
 yarn install --frozen-lockfile
@@ -43,35 +51,32 @@ yarn dev
 
 Acesse [http://localhost:3000](http://localhost:3000). Para encerrar o servidor, pressione `Ctrl+C`.
 
-O projeto não exige banco de dados, arquivo `.env` ou credenciais para executar o quiz local. Os dados são lidos de `db.json`; a rota local da API fica em [http://localhost:3000/api/db](http://localhost:3000/api/db).
+O quiz local não exige banco de dados, arquivo `.env` ou credenciais. Os dados são lidos de `db.json`; a API local pode ser acessada em [http://localhost:3000/api/db](http://localhost:3000/api/db).
 
 ### Build local
+
+Para gerar e iniciar o build de produção:
 
 ```bash
 yarn build
 yarn start
 ```
 
-`yarn start` serve a aplicação compilada e deve ser executado depois de `yarn build`.
+`yarn start` deve ser executado depois de `yarn build`.
 
 ## Publicar na Vercel
 
-A publicação pela integração Git da Vercel detecta aplicações Next.js e cria deployments a partir dos commits enviados ao repositório conectado. Consulte a [documentação de Next.js na Vercel](https://vercel.com/docs/frameworks/full-stack/nextjs) e a [documentação de deployments Git](https://vercel.com/docs/git).
+A Vercel detecta aplicações Next.js e cria deployments a partir do repositório Git conectado. O projeto declara Node.js `22.x` no campo `engines` do `package.json`. Confirme também essa versão nas configurações do projeto na Vercel.
 
-### Compatibilidade necessária antes do deploy
+1. Importe o repositório em **Add New Project**.
+2. Confirme o preset **Next.js** e o diretório raiz do projeto.
+3. Mantenha os comandos de instalação e build detectados pela Vercel.
+4. Envie commits para a branch `develop` e confira o deployment de preview.
+5. Depois de validar o preview, faça o merge para a branch de produção.
 
-**Este projeto ainda precisa de uma atualização de dependências antes de publicar novos builds na Vercel.** Ele está fixado no Next.js 10.0.5 e precisou do Node 16.20.2 para iniciar localmente. A Vercel descontinuou o Node 16 para novos builds e funções; verifique as [versões de Node.js atualmente aceitas](https://vercel.com/docs/functions/runtimes/node-js/node-js-versions) e a [descontinuação do Node 16](https://vercel.com/changelog/node-js-16-deprecation). O erro de PostCSS observado no Node 26 também indica que o stack atual precisa ser atualizado antes de usar um runtime moderno. Não basta apenas trocar a versão de Node no painel.
+Consulte a [documentação de Next.js na Vercel](https://vercel.com/docs/frameworks/full-stack/nextjs), a [documentação de deployments Git](https://vercel.com/docs/git) e as [versões de Node.js aceitas](https://vercel.com/docs/functions/runtimes/node-js/node-js-versions).
 
-Depois de atualizar e validar o Next.js e suas dependências em uma versão de Node aceita pela Vercel:
-
-1. Envie o repositório para um provedor Git conectado à Vercel.
-2. No painel da Vercel, escolha **Add New Project** e importe o repositório.
-3. Confirme o preset **Next.js** e o diretório raiz do projeto.
-4. Mantenha os comandos de instalação e build detectados pela Vercel, que usa o `yarn.lock` para escolher o gerenciador.
-5. Verifique a versão de Node.js e as configurações de build nas configurações do projeto.
-6. Clique em **Deploy**. Depois da integração, novos commits nas branches conectadas iniciam novos deployments.
-
-O projeto não requer variáveis de ambiente para o quiz local. A rota de quizzes externos (`/quiz/[id]`) depende de uma API pública no formato usado pelo projeto e da disponibilidade desse serviço remoto.
+O quiz local não requer variáveis de ambiente. A rota `/quiz/[id]` depende de uma API pública compatível com o formato usado pelo projeto e da disponibilidade desse serviço remoto.
 
 ## Estrutura do projeto
 
@@ -85,7 +90,7 @@ pages/
 └── _document.js       Coleta de estilos do styled-components no servidor
 src/
 ├── components/        Componentes reutilizáveis da interface
-└── screens/Quiz/      Fluxo de perguntas, carregamento e resultado
+└── screens/Quiz/      Fluxo de perguntas, loading e resultado
 db.json                Tema, perguntas e links de quizzes externos
 ```
 
@@ -97,5 +102,3 @@ db.json                Tema, perguntas e links de quizzes externos
 | `yarn build` | Gera o build de produção |
 | `yarn start` | Inicia o servidor de produção após o build |
 | `yarn lint` | Executa o ESLint com `--fix`; pode alterar arquivos automaticamente |
-
-> Observação: a dependência `next` está declarada como `latest` no `package.json`, enquanto o lockfile fixa a instalação em 10.0.5. Fixe a versão no `package.json` antes de atualizar ou regenerar o lockfile para evitar uma atualização inesperada do framework.

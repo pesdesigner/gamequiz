@@ -1,7 +1,12 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import styled from 'styled-components';
-import { Lottie } from '@crello/react-lottie';
+import dynamic from 'next/dynamic';
+
+const Lottie = dynamic(
+  () => import('@crello/react-lottie').then((module) => module.Lottie),
+  { ssr: false }
+);
 // import db from '../../../db.json';
 import Widget from '../../components/Widget';
 import Header from '../../components/Header';
@@ -140,6 +145,16 @@ const QuizImagePanel = styled.aside`
 `;
 
 function ResultWidget({ results }) {
+  const correctAnswers = results.filter(Boolean).length;
+  const perfectScore = results.length > 0
+    && correctAnswers === results.length;
+
+  const feedback = perfectScore
+    ? 'Acho que entregou a idade ;)'
+    : correctAnswers >= 6
+      ? 'Mandou bem! Você jogava bastante… ou ficava de olho em quem jogava.'
+      : 'Os clássicos ainda são novidade por aí, hein? Hora de conhecer essa história!';
+
   return (
     <Widget>
       <Widget.Header>
@@ -148,19 +163,13 @@ function ResultWidget({ results }) {
 
       <Widget.Content>
         <p>
-          Muito bom! Acertou 
+          {perfectScore ? 'Muito bom! Acertou' : 'Você acertou'}
           {' '}
-          {/* {results.reduce((somatoriaAtual, resultAtual) => {
-            const isAcerto = resultAtual === true;
-            if (isAcerto) {
-              return somatoriaAtual + 1;
-            }
-            return somatoriaAtual;
-          }, 0)} */}
-          {results.filter((x) => x).length}
+          {correctAnswers}
           {' '}
-          perguntas
+          perguntas.
         </p>
+
         <ul>
           {results.map((result, index) => (
             <li key={`result__${index}`}>
@@ -168,13 +177,12 @@ function ResultWidget({ results }) {
               {index + 1}
               {' '}
               Resultado:
-              {result === true
-                ? ' Acertou'
-                : ' Errou'}
+              {result === true ? ' Acertou' : ' Errou'}
             </li>
           ))}
         </ul>
-        <p>Acho que entregou a idade ;) </p>
+
+        <p>{feedback}</p>
         <HomeLink href="/">Voltar à tela inicial</HomeLink>
       </Widget.Content>
     </Widget>
@@ -183,20 +191,81 @@ function ResultWidget({ results }) {
 
 function LoadingWidget() {
   return (
-    <Widget>
-      <Widget.Header>
-        Carregando...
-      </Widget.Header>
+    <div
+      className="loading-overlay"
+      role="status"
+      aria-label="Loading..."
+      aria-busy="true"
+    >
+      <div className="loading-content">
+        <p>Loading...</p>
 
-      <Widget.Content style={{ display: 'flex', justifyContent: 'center' }}>
-        <Lottie
-          width="200px"
-          height="200px"
-          className="lottie-container basic"
-          config={{ animationData: loadingAnimation, loop: true, autoplay: true }}
-        />
-      </Widget.Content>
-    </Widget>
+        <div className="loading-bar" aria-hidden="true">
+          <span />
+        </div>
+      </div>
+
+      <style jsx>{`
+        .loading-overlay {
+          position: fixed;
+          inset: 0;
+          z-index: 1000;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: transparent;
+          pointer-events: none;
+        }
+
+        .loading-content {
+          width: min(72vw, 560px);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 14px;
+          color: #db0648;
+          font-family: 'Courier New', monospace;
+          font-weight: bold;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+        }
+
+        .loading-content p {
+          margin: 0;
+        }
+
+        .loading-bar {
+          width: 100%;
+          height: 14px;
+          overflow: hidden;
+          background: rgba(255, 255, 255, 0.25);
+        }
+
+        .loading-bar span {
+          display: block;
+          width: 35%;
+          height: 100%;
+          background: currentColor;
+          animation: loading-sweep 1.2s steps(5, end) infinite;
+        }
+
+        @keyframes loading-sweep {
+          from {
+            transform: translateX(-110%);
+          }
+          to {
+            transform: translateX(300%);
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .loading-bar span {
+            width: 100%;
+            animation: none;
+          }
+        }
+      `}</style>
+    </div>
   );
 }
 
