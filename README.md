@@ -66,6 +66,14 @@ yarn start
 
 ## Publicar na Vercel
 
+### Fluxo de branches
+
+- `develop`: desenvolvimento e integração das alterações.
+- `uat`: homologação do projeto antes da produção. A Vercel cria um deployment de preview para essa branch.
+- `main` ou `master`: produção, conforme a branch configurada como Production Branch na Vercel.
+
+Fluxo de promoção: `develop` → `uat` → `main`/`master`.
+
 A Vercel detecta aplicações Next.js e cria deployments a partir do repositório Git conectado. O projeto declara Node.js `22.x` no campo `engines` do `package.json`. Confirme também essa versão nas configurações do projeto na Vercel.
 
 1. Importe o repositório em **Add New Project**.
